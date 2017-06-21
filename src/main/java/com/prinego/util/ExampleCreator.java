@@ -84,10 +84,10 @@ public class ExampleCreator {
 
 		for(int i = 0; i<allPRs.size();i+=2){		
 			PostRequest p = allPRs.get(i);			
-			p.setNegotiationMethod(NegotiationType.RPG);
+			p.setNegotiationMethod(NegotiationType.RPG); // change this type according to the strategy you want to use.
 			PostRequest p1 = allPRs.get((i+1));
 			p1.setNegotiationMethod(NegotiationType.RPG);
-			toReturn.add(p);
+			toReturn.add(p);  //in-order sharing pattern.
 			toReturn.add(p1);
 			toReturn.add(p);
 			toReturn.add(p1);
@@ -99,11 +99,6 @@ public class ExampleCreator {
 			toReturn.add(p1);
 		}
 		mongoClient.close();
-	
-//		PostRequest p = allPRs.get(2);			
-//		p.setNegotiationMethod(NegotiationType.RPG);
-//		System.out.println(p.getMedium().getIsTakenIn());
-//		toReturn.add(p);
 		return toReturn;
 
 	}
@@ -136,7 +131,7 @@ public class ExampleCreator {
 		return postRequests;
 	}
 
-	public static PostRequest createP_point(int mode) {
+	public static PostRequest createP_point(int mode) {  //post request creator for Alice and Bob.
 		PostRequest p = new PostRequest(); 
 		if(mode ==1){
 			Agent owner = new Agent("ALICE"); 
