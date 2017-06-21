@@ -1,0 +1,846 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protos "http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#" >
+]>
+
+
+<rdf:RDF xmlns="http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#"
+     xml:base="http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:protos="http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#">
+    <owl:Ontology rdf:about="http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasAlternativeMedium -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasAlternativeMedium">
+        <rdfs:range rdf:resource="&protos;Medium"/>
+        <rdfs:domain rdf:resource="&protos;PostRequest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasAudience -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasAudience">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&protos;Audience"/>
+        <rdfs:domain rdf:resource="&protos;PostRequest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasAudienceMember -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasAudienceMember">
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:domain rdf:resource="&protos;Audience"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasMedium -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasMedium">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&protos;Medium"/>
+        <rdfs:domain rdf:resource="&protos;PostRequest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasMeetingMember -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasMeetingMember">
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:domain rdf:resource="&protos;Meeting"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasOwner">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:domain rdf:resource="&protos;PostRequest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasPostText -->
+
+    <owl:ObjectProperty rdf:about="&protos;hasPostText">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&protos;PostRequest"/>
+        <rdfs:range rdf:resource="&protos;PostText"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#includes -->
+
+    <owl:ObjectProperty rdf:about="&protos;includes">
+        <rdfs:domain rdf:resource="&protos;Medium"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#includesLocation -->
+
+    <owl:ObjectProperty rdf:about="&protos;includesLocation">
+        <rdfs:range rdf:resource="&protos;Location"/>
+        <rdfs:domain rdf:resource="&protos;Medium"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;includes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#includesPerson -->
+
+    <owl:ObjectProperty rdf:about="&protos;includesPerson">
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:domain rdf:resource="&protos;Medium"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;includes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isBossOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isBossOf">
+        <rdfs:subPropertyOf rdf:resource="&protos;isColleagueOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isCloseFriendOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isCloseFriendOf">
+        <rdfs:subPropertyOf rdf:resource="&protos;isFriendOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isColleagueOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isColleagueOf">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;isConnectedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isConnectedTo -->
+
+    <owl:ObjectProperty rdf:about="&protos;isConnectedTo">
+        <rdfs:domain rdf:resource="&protos;Agent"/>
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isFriendAtCollege -->
+
+    <owl:ObjectProperty rdf:about="&protos;isFriendAtCollege">
+        <rdfs:subPropertyOf rdf:resource="&protos;isFriendOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isFriendAtWork -->
+
+    <owl:ObjectProperty rdf:about="&protos;isFriendAtWork">
+        <rdfs:subPropertyOf rdf:resource="&protos;isColleagueOf"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;isFriendOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isFriendOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isFriendOf">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;isConnectedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isInContext -->
+
+    <owl:ObjectProperty rdf:about="&protos;isInContext">
+        <rdfs:range rdf:resource="&protos;Context"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&protos;Medium"/>
+                    <rdf:Description rdf:about="&protos;PostText"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isInRelationshipWith -->
+
+    <owl:ObjectProperty rdf:about="&protos;isInRelationshipWith">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;isConnectedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isOldFriendOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isOldFriendOf">
+        <rdfs:subPropertyOf rdf:resource="&protos;isFriendOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isPartOfFamilyOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isPartOfFamilyOf">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;isConnectedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isProblematicFriendOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;isProblematicFriendOf">
+        <rdfs:subPropertyOf rdf:resource="&protos;isFriendOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#mentions -->
+
+    <owl:ObjectProperty rdf:about="&protos;mentions">
+        <rdfs:domain rdf:resource="&protos;PostText"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#mentionsLocation -->
+
+    <owl:ObjectProperty rdf:about="&protos;mentionsLocation">
+        <rdfs:range rdf:resource="&protos;Location"/>
+        <rdfs:domain rdf:resource="&protos;PostText"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;mentions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#mentionsPerson -->
+
+    <owl:ObjectProperty rdf:about="&protos;mentionsPerson">
+        <rdfs:range rdf:resource="&protos;Agent"/>
+        <rdfs:domain rdf:resource="&protos;PostText"/>
+        <rdfs:subPropertyOf rdf:resource="&protos;mentions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#rejectedBecauseOf -->
+
+    <owl:ObjectProperty rdf:about="&protos;rejectedBecauseOf"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#rejectedIn -->
+
+    <owl:ObjectProperty rdf:about="&protos;rejectedIn"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#rejects -->
+
+    <owl:ObjectProperty rdf:about="&protos;rejects">
+        <rdfs:domain rdf:resource="&protos;Agent"/>
+        <rdfs:range rdf:resource="&protos;PostRequest"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasDateTaken -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasDateTaken">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasMeetingProperty -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasMeetingProperty">
+        <rdfs:domain rdf:resource="&protos;Meeting"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first>lgbt</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first>swearword</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&protos;Context"/>
+                    <rdf:Description rdf:about="&protos;Location"/>
+                    <rdf:Description rdf:about="&protos;Medium"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasText -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasText">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&protos;PostText"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasUid -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasUid">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&protos;Agent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#hasUrl -->
+
+    <owl:DatatypeProperty rdf:about="&protos;hasUrl">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&protos;Medium"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#isDisliked -->
+
+    <owl:DatatypeProperty rdf:about="&protos;isDisliked">
+        <rdfs:domain rdf:resource="&protos;Medium"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#rejectedBecauseOfDate -->
+
+    <owl:DatatypeProperty rdf:about="&protos;rejectedBecauseOfDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent -->
+
+    <owl:Class rdf:about="&protos;Agent"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Audience -->
+
+    <owl:Class rdf:about="&protos;Audience"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Bar -->
+
+    <owl:Class rdf:about="&protos;Bar">
+        <rdfs:subClassOf rdf:resource="&protos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Beach -->
+
+    <owl:Class rdf:about="&protos;Beach">
+        <rdfs:subClassOf rdf:resource="&protos;Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Cafe -->
+
+    <owl:Class rdf:about="&protos;Cafe">
+        <rdfs:subClassOf rdf:resource="&protos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#ColleagueMeeting -->
+
+    <owl:Class rdf:about="&protos;ColleagueMeeting">
+        <rdfs:subClassOf rdf:resource="&protos;Meeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#College -->
+
+    <owl:Class rdf:about="&protos;College">
+        <rdfs:subClassOf rdf:resource="&protos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Context -->
+
+    <owl:Class rdf:about="&protos;Context"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#EatAndDrink -->
+
+    <owl:Class rdf:about="&protos;EatAndDrink">
+        <rdfs:subClassOf rdf:resource="&protos;Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#FriendMeeting -->
+
+    <owl:Class rdf:about="&protos;FriendMeeting">
+        <rdfs:subClassOf rdf:resource="&protos;Meeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Leisure -->
+
+    <owl:Class rdf:about="&protos;Leisure">
+        <rdfs:subClassOf rdf:resource="&protos;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Location -->
+
+    <owl:Class rdf:about="&protos;Location"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Medium -->
+
+    <owl:Class rdf:about="&protos;Medium"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Meeting -->
+
+    <owl:Class rdf:about="&protos;Meeting">
+        <rdfs:subClassOf rdf:resource="&protos;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Museum -->
+
+    <owl:Class rdf:about="&protos;Museum">
+        <rdfs:subClassOf rdf:resource="&protos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Party -->
+
+    <owl:Class rdf:about="&protos;Party">
+        <rdfs:subClassOf rdf:resource="&protos;Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Picture -->
+
+    <owl:Class rdf:about="&protos;Picture">
+        <rdfs:subClassOf rdf:resource="&protos;Medium"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#PostRequest -->
+
+    <owl:Class rdf:about="&protos;PostRequest"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#PostText -->
+
+    <owl:Class rdf:about="&protos;PostText"/>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#ProtestMeeting -->
+
+    <owl:Class rdf:about="&protos;ProtestMeeting">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&protos;hasMeetingProperty"/>
+                <owl:hasValue>swearword</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&protos;Meeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#ResearchMeeting -->
+
+    <owl:Class rdf:about="&protos;ResearchMeeting">
+        <rdfs:subClassOf rdf:resource="&protos;Meeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Sightseeing -->
+
+    <owl:Class rdf:about="&protos;Sightseeing">
+        <rdfs:subClassOf rdf:resource="&protos;Leisure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#University -->
+
+    <owl:Class rdf:about="&protos;University">
+        <rdfs:subClassOf rdf:resource="&protos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Video -->
+
+    <owl:Class rdf:about="&protos;Video">
+        <rdfs:subClassOf rdf:resource="&protos;Medium"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Work -->
+
+    <owl:Class rdf:about="&protos;Work">
+        <rdfs:subClassOf rdf:resource="&protos;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_ALICE -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_ALICE">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">ALICE</hasUid>
+        <isFriendOf rdf:resource="&protos;Agent_BOB"/>
+        <isFriendOf rdf:resource="&protos;Agent_CAROL"/>
+        <isColleagueOf rdf:resource="&protos;Agent_DAVID"/>
+        <isFriendOf rdf:resource="&protos;Agent_ERROL"/>
+        <isFriendOf rdf:resource="&protos;Agent_FILIPO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_BOB -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_BOB">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">BOB</hasUid>
+        <isFriendOf rdf:resource="&protos;Agent_DAVID"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_CAROL -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_CAROL">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">CAROL</hasUid>
+        <isFriendOf rdf:resource="&protos;Agent_FILIPO"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_DAVID -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_DAVID">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">DAVID</hasUid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_ERROL -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_ERROL">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">ERROL</hasUid>
+        <isPartOfFamilyOf rdf:resource="&protos;Agent_BOB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://mas.cmpe.boun.edu.tr/nadin/ontologies/protos#Agent_FILIPO -->
+
+    <owl:NamedIndividual rdf:about="&protos;Agent_FILIPO">
+        <rdf:type rdf:resource="&protos;Agent"/>
+        <hasUid rdf:datatype="&xsd;string">FILIPO</hasUid>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#context">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#postRequest">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#audience">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#audienceMember">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#medium">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="&protos;rejectedBecauseOf"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#audience"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#audienceMember"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;AtomList"/>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                        <swrl:argument1 rdf:resource="&protos;Agent_ALICE"/>
+                                        <swrl:propertyPredicate rdf:resource="&protos;rejects"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#postRequest"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="&protos;rejectedIn"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#audience"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#postRequest"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="&protos;Leisure"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#context"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="&protos;hasAudience"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#audience"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#postRequest"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="&protos;hasAudienceMember"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#audience"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#audienceMember"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="&protos;hasMedium"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#medium"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#postRequest"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&swrl;AtomList"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="&protos;isInContext"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl#context"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl#medium"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                                        <swrl:argument2 rdf:resource="&protos;Agent_ALICE"/>
+                                                        <swrl:propertyPredicate rdf:resource="&protos;isColleagueOf"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#audienceMember"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
