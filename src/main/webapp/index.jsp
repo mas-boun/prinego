@@ -11,14 +11,11 @@
 WELCOME TO PRINEGO
 
 <%
-	//Set<Medium> altMedium = new HashSet<Medium>();
-   // List<PostRequest> p = ExampleMockUtil.createSimulation();
-    List<PostRequest> p = ExampleCreator.createSimulation();
+    List<PostRequest> p = ExampleCreator.createSimulation(); //you can use different methods here such as executePointBased().
     List<PostRequest> finalizedP = WsCallUtil.callUploadWs(p, new HashSet());
-    //WsCallUtil.bestPairwiseWs(p);
+    //WsCallUtil.bestPairwiseWs(p);  //for finding the best outcome pairwise.
     //PostRequest p = ExampleMockUtil.createP_hist();
     //PostRequest finalizedP = WsCallUtil.callUploadWs(p, new HashSet());
-    //WsCallUtil.displayResults(p, finalizedP);
   
 %>
 
