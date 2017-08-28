@@ -42,9 +42,10 @@ import com.prinego.util.globals.AppGlobals;
  */
 public class ExampleCreator {
 
+	//The negotiation type you want to use with the simulation.
+	private static NegotiationType NEGOTIATION_TYPE = NegotiationType.RPG;
 	
 	public static List<PostRequest> createSimulation(){
-		List<PostRequest> toReturn = new ArrayList<PostRequest>();
 		List<PostRequest> allPRs = new ArrayList<PostRequest>();
 		MongoClient mongoClient = new MongoClient(AppGlobals.MONGODB_HOST , AppGlobals.MONGODB_PORT );
 		// Now connect to your databases
@@ -82,58 +83,141 @@ public class ExampleCreator {
 			cursor.close();
 		}
 
-		for(int i = 0; i<allPRs.size();i+=2){		
-			PostRequest p = allPRs.get(i);			
-			p.setNegotiationMethod(NegotiationType.RPG); // change this type according to the strategy you want to use.
-			PostRequest p1 = allPRs.get((i+1));
-			p1.setNegotiationMethod(NegotiationType.RPG);
-			toReturn.add(p);  //in-order sharing pattern.
-			toReturn.add(p1);
-			toReturn.add(p);
-			toReturn.add(p1);
-			toReturn.add(p);
-			toReturn.add(p1);
-			toReturn.add(p);
-			toReturn.add(p1);
-			toReturn.add(p);
-			toReturn.add(p1);
-		}
 		mongoClient.close();
-		return toReturn;
+	
+		return createPostRequestListForNegotiationType(allPRs,NEGOTIATION_TYPE);
 
 	}
 	
+	public static List<PostRequest> createPostRequestListForNegotiationType(List<PostRequest> allPostRequests, NegotiationType negotiationType){
+		
+		List<PostRequest> toReturn = new ArrayList<PostRequest>();
+		switch(negotiationType){
+			case GEP:
+				for(int i = 0; i<allPostRequests.size();i++){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.GEP);
+					toReturn.add(p);
+				}
+				break;
+			case MP:
+				for(int i = 0; i<allPostRequests.size();i++){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.MP);
+					toReturn.add(p);
+				}
+				break;
+			case RPG:
+				for(int i = 0; i<allPostRequests.size();i+=2){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.RPG);
+					PostRequest p1 = allPostRequests.get((i+1));
+					p1.setNegotiationMethod(NegotiationType.RPG);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+				}
+				break;
+			case RPM:
+				for(int i = 0; i<allPostRequests.size();i+=2){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.RPM);
+					PostRequest p1 = allPostRequests.get((i+1));
+					p1.setNegotiationMethod(NegotiationType.RPM);
+					toReturn.add(p); 
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+				}
+				break;
+			case HybridG:
+				for(int i = 0; i<allPostRequests.size();i+=2){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.HybridG);
+					PostRequest p1 = allPostRequests.get((i+1));
+					p1.setNegotiationMethod(NegotiationType.HybridG);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+				}
+				break;
+			case HybridM:
+				for(int i = 0; i<allPostRequests.size();i+=2){		
+					PostRequest p = allPostRequests.get(i);			
+					p.setNegotiationMethod(NegotiationType.HybridM);
+					PostRequest p1 = allPostRequests.get((i+1));
+					p1.setNegotiationMethod(NegotiationType.HybridM);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+					toReturn.add(p);
+					toReturn.add(p1);
+				}
+				break;
+			case DEFAULT:
+				break;
+		}
+		
+		return toReturn;
+	}
 
 	public static List<PostRequest> executePointBased(){
 		List<PostRequest> postRequests = new ArrayList<PostRequest>();
 
-		PostRequest p9 = new PostRequest(createP_point(3));  //bob to alice
-		p9.setNegotiationMethod(NegotiationType.HybridG);
-		p9.setExampleName("Example1");
+		PostRequest p1 = new PostRequest(createPostRequestAliceAndBob(1));//alice - initiator   :  bob - negotiator
+		p1.setNegotiationMethod(NEGOTIATION_TYPE);
+		p1.setExampleName("Example1");
 		
-		postRequests.add(p9);
+		postRequests.add(p1);
 		
-		PostRequest p8 = new PostRequest(createP_point(2)); //alice to bob
-		p8.setNegotiationMethod(NegotiationType.MP);
-		p8.setExampleName("Example1");
+		PostRequest p2 = new PostRequest(createPostRequestAliceAndBob(2)); //alice - initiator   :  bob - negotiator
+		p2.setNegotiationMethod(NEGOTIATION_TYPE);
+		p2.setExampleName("Example1");
 	
-		PostRequest p10 = new PostRequest(createP_point(4)); //alice to bob
-		p10.setNegotiationMethod(NegotiationType.RPG);
-		p10.setExampleName("Example1");
+		PostRequest p3 = new PostRequest(createPostRequestAliceAndBob(3)); //bob - initiator   :  alice - negotiator
+		p3.setNegotiationMethod(NEGOTIATION_TYPE);
+		p3.setExampleName("Example1");
 	
-		PostRequest p5 = new PostRequest(createP_point(5)); //bob to alice
+		PostRequest p4 = new PostRequest(createPostRequestAliceAndBob(4)); //alice - initiator   :  bob - negotiator
+		p4.setNegotiationMethod(NEGOTIATION_TYPE);
+		p4.setExampleName("Example1");
+	
 
-
-		PostRequest p0 = new PostRequest(createP_point(3)); //bob to alice
-		p0.setNegotiationMethod(NegotiationType.RPG);
-		p0.setExampleName("Example1");
+		PostRequest p5 = new PostRequest(createPostRequestAliceAndBob(3)); //bob - initiator   :  alice - negotiator
+		p5.setNegotiationMethod(NEGOTIATION_TYPE);
+		p5.setExampleName("Example1");
 			
 		return postRequests;
 	}
 
-	public static PostRequest createP_point(int mode) {  //post request creator for Alice and Bob.
+	public static PostRequest createPostRequestAliceAndBob(int mode) {  //post request creator for Alice and Bob.
 		PostRequest p = new PostRequest(); 
-		if(mode ==1){
+		if(mode ==1){     // Alice tags Bob in a picture with Eat & Drink context.
 			Agent owner = new Agent("ALICE"); 
 			p.setOwner(owner); 
 			Picture picture = new Picture(); 
@@ -152,10 +236,9 @@ public class ExampleCreator {
 			p.getAudience().getAudienceMembers().add(new Agent("GEORGE")); 
 			p.getAudience().getAudienceMembers().add(new Agent("CAROL")); 
 			p.getAudience().getAudienceMembers().add(new Agent("ALICE")); 
-			p.setNegotiationMethod(NegotiationType.RPG); 
 			p.setExampleName("Example1");
 			return p;
-		}else if(mode==2){
+		}else if(mode==2){ //Alice tags Bob in a picture with party context.
 			Agent owner = new Agent("ALICE"); 
 			p.setOwner(owner); 
 			Picture picture = new Picture(); 
@@ -174,10 +257,9 @@ public class ExampleCreator {
 			p.getAudience().getAudienceMembers().add(new Agent("GEORGE")); 
 			p.getAudience().getAudienceMembers().add(new Agent("CAROL")); 
 			p.getAudience().getAudienceMembers().add(new Agent("ALICE")); 
-			p.setNegotiationMethod(NegotiationType.RPG); 
 			p.setExampleName("Example1");
 			return p;
-		}else if(mode==3){
+		}else if(mode==3){  //Bob tags Alice in a picture with party context.
 			Agent owner = new Agent("BOB"); 
 			p.setOwner(owner); 
 			Picture picture = new Picture(); 
@@ -196,10 +278,9 @@ public class ExampleCreator {
 			p.getAudience().getAudienceMembers().add(new Agent("GEORGE")); 
 			p.getAudience().getAudienceMembers().add(new Agent("CAROL")); 
 			p.getAudience().getAudienceMembers().add(new Agent("ALICE")); 
-			p.setNegotiationMethod(NegotiationType.RPG); 
 			p.setExampleName("Example1");
 			return p;
-		}else if(mode == 4){
+		}else if(mode == 4){  //Alice tags Bob in a picture with work context.
 			Agent owner = new Agent("ALICE"); 
 			p.setOwner(owner); 
 			Picture picture = new Picture(); 
@@ -218,10 +299,9 @@ public class ExampleCreator {
 			p.getAudience().getAudienceMembers().add(new Agent("GEORGE")); 
 			p.getAudience().getAudienceMembers().add(new Agent("CAROL")); 
 			p.getAudience().getAudienceMembers().add(new Agent("ALICE")); 
-			p.setNegotiationMethod(NegotiationType.RPG); 
 			p.setExampleName("Example1");
 			return p;
-		}else if(mode == 5){
+		}else if(mode == 5){ //Bob tags Alice in a picture with Eat & Drink context.
 			Agent owner = new Agent("BOB"); 
 			p.setOwner(owner); 
 			Picture picture = new Picture(); 
@@ -240,7 +320,6 @@ public class ExampleCreator {
 			p.getAudience().getAudienceMembers().add(new Agent("GEORGE")); 
 			p.getAudience().getAudienceMembers().add(new Agent("CAROL")); 
 			p.getAudience().getAudienceMembers().add(new Agent("BOB")); 
-			p.setNegotiationMethod(NegotiationType.RPG); 
 			p.setExampleName("Example1");
 			return p;
 		}
