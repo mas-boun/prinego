@@ -44,5 +44,13 @@ and add the Maven dependencies there if it is not there already.
 Update project from right-click, Maven, Update Project.
 This will update and compile the code again.
 
+#### How to run the running examples described in the paper? #### 
+
+* ExampleCreator file should be executed for this. 
+* *NEGOTIATION_TYPE* variable should be changed to the chosen strategy, which is one of: GEP, MP, RPG, RPM, HybridG, HybridM and Default (UO in the paper). 
+* Make sure that you imported the mongodb database dumps as described [here](mongodb/README.md).
+
+#### How to run a new example? #### 
+
 [1] Dilara Keküllüoğlu , Nadin Kökciyan, and Pınar Yolum. 2018. Preserving Privacy as Social Responsibility in Online Social
 Networks. ACM Transactions on Internet Technology (TOIT) (2018). Submitted.
