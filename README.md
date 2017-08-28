@@ -9,7 +9,7 @@ https://github.com/stardog-union/pellet .
 
 Examples of usage is shown in ExampleCreator.java in the util folder.
 
-#### A Walk-Through ####
+## A Walk-Through ##
 
 * ExampleCreator creates the post requests to process.
 * WsCallUtil sends the post request to the webservice of the owner agent(initiator).
@@ -28,7 +28,7 @@ evaluation method.
   * Evaluation method uses MyOntologyReasoner’s corresponding prepareResponse
 method and sends the response.
 
-#### What to install? ####
+## What to install? ##
 
 * We use **Java 8** with **Maven** dependencies, deploy the program to **Tomcat 8** server
 and use **mongodb** to keep track of points and utility results. You should have these components installed first.
@@ -44,13 +44,13 @@ and add the Maven dependencies there if it is not there already.
 Update project from right-click, Maven, Update Project.
 This will update and compile the code again.
 
-#### How to run the running examples described in the paper? #### 
+## How to reproduce the results obtained in the paper? ## 
 
-* ExampleCreator file should be executed for this. 
+* Our running example is added to this repository. ExampleCreator file should be executed for this. 
 * *NEGOTIATION_TYPE* variable should be changed to the chosen strategy, which is one of: GEP, MP, RPG, RPM, HybridG, HybridM and Default (UO in the paper). 
 * Make sure that you imported the mongodb database dumps as described [here](mongodb/README.md).
 
-#### How to run a new example? #### 
+## How to run a new example? ## 
 
 [1] Dilara Keküllüoğlu , Nadin Kökciyan, and Pınar Yolum. 2018. Preserving Privacy as Social Responsibility in Online Social
 Networks. ACM Transactions on Internet Technology (TOIT) (2018). Submitted.
