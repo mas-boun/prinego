@@ -7,3 +7,5 @@ mongorestore --collection postRequestsPairWise --db prinego
 ```
 
 from the command line.
+
+https://docs.mongodb.com/manual/reference/program/mongorestore/
