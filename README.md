@@ -44,7 +44,7 @@ method and sends the response.
 
 ## How to reproduce the results obtained in the paper? ## 
 
-* Examples of usage are shown in *ExampleCreator.java* in the util folder.
+* Examples of usage are shown in [*ExampleCreator.java*](src/main/java/com/prinego/util/ExampleCreator.java) in the util folder.
 * *ExampleCreator* file should be executed for this. 
 * *NEGOTIATION_TYPE* variable should be changed to the chosen strategy, which is one of: GEP, MP, RPG, RPM, HybridG, HybridM.
 * Make sure that you imported the mongodb database dumps as described [here](mongodb/README.md).
