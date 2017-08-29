@@ -107,7 +107,7 @@ public class ExampleCreator {
 					toReturn.add(p);
 				}
 				break;
-			case RPG:
+			case RPG:  //RGEP
 				for(int i = 0; i<allPostRequests.size();i+=2){		
 					PostRequest p = allPostRequests.get(i);			
 					p.setNegotiationMethod(NegotiationType.RPG);
@@ -125,7 +125,7 @@ public class ExampleCreator {
 					toReturn.add(p1);
 				}
 				break;
-			case RPM:
+			case RPM:  //RMP
 				for(int i = 0; i<allPostRequests.size();i+=2){		
 					PostRequest p = allPostRequests.get(i);			
 					p.setNegotiationMethod(NegotiationType.RPM);
