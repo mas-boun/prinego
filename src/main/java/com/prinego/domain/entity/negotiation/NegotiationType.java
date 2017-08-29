@@ -7,12 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * */
 public enum NegotiationType {
 		DEFAULT,
-		GEP,  //gep
-		MP,  //mp
+		GEP,  //GEP
+		MP,  //MP
 		SUCH_BASED,
 		@JsonProperty("POINT_BASED")
-		RPG,   //rpg
-		RPM,   //rpm
+		RPG,   //RGEP
+		RPM,   //RMP
 		HybridG,  //hybridG
 		HybridM;   //hybridM
 }
