@@ -179,7 +179,7 @@ public class ExampleCreator {
 					toReturn.add(p1);
 				}
 				break;
-			case DEFAULT:
+			default:
 				break;
 		}
 		
