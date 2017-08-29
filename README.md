@@ -46,7 +46,7 @@ method and sends the response.
 
 * Examples of usage are shown in *ExampleCreator.java* in the util folder.
 * *ExampleCreator* file should be executed for this. 
-* *NEGOTIATION_TYPE* variable should be changed to the chosen strategy, which is one of: GEP, MP, RPG, RPM, HybridG, HybridM and Default (UO in the paper). 
+* *NEGOTIATION_TYPE* variable should be changed to the chosen strategy, which is one of: GEP, MP, RPG, RPM, HybridG, HybridM.
 * Make sure that you imported the mongodb database dumps as described [here](mongodb/README.md).
 
 ## How to run a new example? ## 
